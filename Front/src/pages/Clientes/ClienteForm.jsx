@@ -33,14 +33,13 @@ function ClienteForm() {
       };
       fetchCliente();
     } else {
-      setLoading(false); // Não precisa carregar se for novo
+      setLoading(false);
     }
   }, [id, isEditMode]);
 
   const validate = () => {
     let tempErrors = {};
     if (!cliente.nome) tempErrors.nome = "Nome é obrigatório.";
-    // Adicione mais validações conforme necessário (e.g., tamanho máximo)
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };

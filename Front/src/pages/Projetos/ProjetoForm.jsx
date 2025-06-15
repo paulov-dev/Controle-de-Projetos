@@ -80,7 +80,6 @@ function ProjetoForm() {
         if (apiValidationErrors) {
           let formattedErrors = {};
           for (const key in apiValidationErrors) {
-            // O nome do campo na API pode ser 'clienteId' ou 'ClienteId'
             const lowerCaseKey = key.charAt(0).toLowerCase() + key.slice(1);
             formattedErrors[lowerCaseKey] = apiValidationErrors[key].join(', ');
           }
