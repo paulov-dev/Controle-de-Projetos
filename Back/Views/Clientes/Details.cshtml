@@ -1,0 +1,36 @@
+﻿@model ControleDeProjetos.Models.Cliente
+
+@{
+    ViewData["Title"] = "Clientes - Details";
+}
+
+<h1>Detalhes do Cliente</h1>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nome
+        </dd>
+        <dt class="col-sm-2">
+            Endereço
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Endereco
+        </dd>
+        <dt class="col-sm-2">
+            Cidade
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Cidade
+        </dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.ClienteId" class="btn btn-warning">
+        <i class="fa fa-edit"></i> Editar
+    </a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</div>

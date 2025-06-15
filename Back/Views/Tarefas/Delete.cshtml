@@ -1,0 +1,47 @@
+﻿@model ControleDeProjetos.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Tarefas - Delete";
+}
+
+<h1>Excluir Tarefa</h1>
+<hr />
+
+<div>
+    <h4>Tem certeza que deseja excluir esta Tarefa?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Título
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Titulo
+        </dd>
+        <dt class="col-sm-2">
+            Projeto
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Projeto?.Nome (@Model.Projeto?.Cliente?.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            Descrição
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Descricao
+        </dd>
+        <dt class="col-sm-2">
+            Concluída
+        </dt>
+        <dd class="col-sm-10">
+            @(Model.Concluida ? "Sim" : "Não")
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="TarefaId" />
+        <button type="submit" class="btn btn-danger">
+            <i class="fa fa-trash"></i> Excluir
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

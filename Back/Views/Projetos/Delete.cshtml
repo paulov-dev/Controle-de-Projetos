@@ -1,0 +1,42 @@
+﻿@model ControleDeProjetos.Models.Projeto
+
+@{
+    ViewData["Title"] = "Projetos - Delete";
+}
+
+<h1>Excluir Projeto</h1>
+<hr />
+
+<div>
+    <h4>Tem certeza que deseja excluir este Projeto?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nome
+        </dd>
+        <dt class="col-sm-2">
+            Cliente
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Cliente?.Nome
+        </dd>
+        <dt class="col-sm-2">
+            Descrição
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Descricao
+        </dd>
+    </dl>
+
+    <!-- Alterado asp-action para "Delete" -->
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="ProjetoId" />
+        <button type="submit" class="btn btn-danger">
+            <i class="fa fa-trash"></i> Excluir
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

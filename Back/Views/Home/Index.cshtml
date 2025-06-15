@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Bem-vindo(a)!";
+}
+
+<div class="jumbotron text-center" style="margin-top: 40px;">
+    <h1 class="display-4">Bem-vindo(a) ao Controle de Projetos!</h1>
+    <p class="lead">
+        Este é o seu sistema para gerenciar Clientes, Projetos e Tarefas.
+    </p>
+    <hr class="my-4" />
+    <p>
+        Utilize o menu acima para navegar ou clique em um dos botões abaixo.
+    </p>
+    <a class="btn btn-primary btn-lg" asp-controller="Clientes" asp-action="Index" role="button">
+        <i class="fa fa-users"></i> Clientes
+    </a>
+    <a class="btn btn-success btn-lg" asp-controller="Projetos" asp-action="Index" role="button">
+        <i class="fa fa-folder-open"></i> Projetos
+    </a>
+    <a class="btn btn-info btn-lg" asp-controller="Tarefas" asp-action="Index" role="button">
+        <i class="fa fa-tasks"></i> Tarefas
+    </a>
+</div>

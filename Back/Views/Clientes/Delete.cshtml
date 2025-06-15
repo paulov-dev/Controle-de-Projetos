@@ -1,0 +1,42 @@
+﻿@model ControleDeProjetos.Models.Cliente
+
+@{
+    ViewData["Title"] = "Clientes - Delete";
+}
+
+<h1>Excluir Cliente</h1>
+<hr />
+
+<div>
+    <h4>Tem certeza que deseja excluir este Cliente?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nome
+        </dd>
+        <dt class="col-sm-2">
+            Endereço
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Endereco
+        </dd>
+        <dt class="col-sm-2">
+            Cidade
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Cidade
+        </dd>
+    </dl>
+
+    <!-- Note que o asp-action é "Delete" para casar com o ActionName no controller -->
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="ClienteId" />
+        <button type="submit" class="btn btn-danger">
+            <i class="fa fa-trash"></i> Excluir
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

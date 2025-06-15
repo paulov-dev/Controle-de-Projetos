@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ControleDeProjetos.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "Tarefas - Index";
+}
+
+<h1>Tarefas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i> Nova Tarefa
+    </a>
+</p>
+
+<table id="tabela-tarefas" class="display table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Projeto</th>
+            <th>Cliente do Projeto</th>
+            <th>Concluída</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tarefa in Model)
+        {
+            <tr>
+                <td>@tarefa.Titulo</td>
+                <td>@tarefa.Projeto?.Nome</td>
+                <td>@tarefa.Projeto?.Cliente?.Nome</td>
+                <td>@(tarefa.Concluida ? "Sim" : "Não")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="btn btn-info btn-sm">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tabela-tarefas').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json"
+                }
+            });
+
+            var successMessage = '@TempData["SuccessMessage"]';
+            if (successMessage && successMessage.trim().length > 0) {
+                Swal.fire({
+                    title: 'Excluído!',
+                    text: successMessage,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+}
